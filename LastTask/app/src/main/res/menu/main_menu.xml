@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:title="Home"
+            android:icon="@drawable/home_icon"/>
+
+        <item
+            android:id="@+id/nav_academic_session"
+            android:title="Academic Session"
+            android:icon="@drawable/academic_icon"/>
+
+        <item
+            android:id="@+id/nav_syllabus"
+            android:title="Syllabus"
+            android:icon="@drawable/syllabus_icon"/>
+
+        <item
+            android:id="@+id/nav_timetable"
+            android:title="Timetable"
+            android:icon="@drawable/timetable_icon"/>
+    </group>
+
+
+        <item
+            android:title="Profile">
+
+            <menu>
+                <group android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/nav_login"
+                    android:title="Log-In"
+                    android:icon="@drawable/home_icon"/>
+
+                <item
+                    android:id="@+id/nav_logout"
+                    android:title="Log-Out"
+                    android:icon="@drawable/logout_icon"/>
+
+                <item
+                    android:id="@+id/nav_profile"
+                    android:title="Profile"
+                    android:icon="@drawable/ic_account_circle_black_24dp"/>
+
+                </group>
+
+
+
+            </menu>
+        </item>
+
+
+    <item android:title="Communication">
+
+        <menu>
+
+            <group android:checkableBehavior="single">
+
+            <item
+                android:id="@+id/nav_share"
+                android:title="Share"
+                android:icon="@drawable/share_icon"/>
+
+            <item
+                android:id="@+id/nav_rate"
+                android:title="Rate Us"
+                android:icon="@drawable/rate_icon"/>
+
+            </group>
+
+        </menu>
+
+    </item>
+
+</menu>

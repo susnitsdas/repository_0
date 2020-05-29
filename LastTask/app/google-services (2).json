@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "285545012310",
+    "firebase_url": "https://lasttask-53b23.firebaseio.com",
+    "project_id": "lasttask-53b23",
+    "storage_bucket": "lasttask-53b23.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:285545012310:android:a32d3eb01a88b0ac5f6ff7",
+        "android_client_info": {
+          "package_name": "com.example.lasttask"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "285545012310-3pkunqk0cn60rnkatk9vk37ld6ul23bb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5-kKI8RKpDuyc_j3N-DrRoxzBREYflKc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "285545012310-3pkunqk0cn60rnkatk9vk37ld6ul23bb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
