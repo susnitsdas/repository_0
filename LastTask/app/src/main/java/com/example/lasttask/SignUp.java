@@ -1,7 +1,6 @@
 package com.example.lasttask;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,9 +10,11 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+
+
 public class SignUp extends AppCompatActivity {
 
-    TextInputLayout regName, regUsername, regEmail, regPhoneNo, regpassword;
+    TextInputLayout regName, regUsername, regEmail, regPhoneNo, regPassword;
     Button regBtn, regToLoginBtn;
 
     FirebaseDatabase rootNode;
@@ -28,7 +29,7 @@ public class SignUp extends AppCompatActivity {
         regUsername = findViewById(R.id.reg_username);
         regEmail = findViewById(R.id.reg_email);
         regPhoneNo = findViewById(R.id.reg_phoneNo);
-        regpassword = findViewById(R.id.reg_password);
+        regPassword = findViewById(R.id.reg_password);
         regBtn = findViewById(R.id.regBtn);
         regToLoginBtn = findViewById(R.id.regToLoginBtn);
 
@@ -43,7 +44,7 @@ public class SignUp extends AppCompatActivity {
                 String username = regUsername.getEditText().getText().toString();
                 String email = regEmail.getEditText().getText().toString();
                 String phoneNo = regPhoneNo.getEditText().getText().toString();
-                String password = regpassword.getEditText().getText().toString();
+                String password = regPassword.getEditText().getText().toString();
 
                 UserHelperClass helperClass = new UserHelperClass(name, username, email, phoneNo, password);
                 reference.child(phoneNo).setValue(helperClass);
@@ -62,4 +63,5 @@ public class SignUp extends AppCompatActivity {
             }
         });
     }
+
 }

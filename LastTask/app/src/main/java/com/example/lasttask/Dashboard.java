@@ -25,7 +25,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     NavigationView navigationView;
     Toolbar toolbar;
 
-    private CardView calculator_cv, voice_recorder, alarm, syllabus;
+    private CardView calculator_cv, voice_recorder, alarm, syllabus,library_fine_calculator;
 
      public static final int ACTIVITY_RECORD_SOUND = 0;
 
@@ -41,7 +41,8 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         calculator_cv = (CardView) findViewById(R.id.calculator_cv);
         voice_recorder = (CardView) findViewById(R.id.voice_recorder);
         alarm = (CardView) findViewById(R.id.alarm);
-        syllabus = findViewById(R.id.syllabus);
+        syllabus = (CardView) findViewById(R.id.syllabus);
+        library_fine_calculator = (CardView) findViewById(R.id.library_fine_calculator);
 
         calculator_cv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,13 +80,21 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
             }
         });
 
+        library_fine_calculator.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Dashboard.this, LibraryFineCalculator.class);
+                startActivity(intent);
+            }
+        });
+
 
         setSupportActionBar(toolbar);
 
-        //hide or show items in profile section
 
 
-        //navigationView.bringToFront();
+
+        navigationView.bringToFront();
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -119,6 +128,10 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                Intent intent2 = new Intent(Dashboard.this, Timetable.class);
                startActivity(intent2);
                break;
+            case R.id.nav_login:
+                Intent intent3 = new Intent(Dashboard.this, LoginActivity.class);
+                startActivity(intent3);
+                break;
 
         }
         drawerLayout.closeDrawer(GravityCompat.START);
