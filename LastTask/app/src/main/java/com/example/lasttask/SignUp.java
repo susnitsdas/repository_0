@@ -1,57 +1,48 @@
 package com.example.lasttask;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 
 public class SignUp extends AppCompatActivity {
 
-    TextInputLayout regName, regUsername, regEmail, regPhoneNo, regPassword;
+    TextInputLayout regEmail, regPassword;
     Button regBtn, regToLoginBtn;
 
-    FirebaseDatabase rootNode;
-    DatabaseReference reference;
+    private FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        regName = findViewById(R.id.reg_name);
-        regUsername = findViewById(R.id.reg_username);
+
         regEmail = findViewById(R.id.reg_email);
-        regPhoneNo = findViewById(R.id.reg_phoneNo);
         regPassword = findViewById(R.id.reg_password);
         regBtn = findViewById(R.id.regBtn);
         regToLoginBtn = findViewById(R.id.regToLoginBtn);
 
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
+
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                rootNode = FirebaseDatabase.getInstance();
-                reference = rootNode.getReference("user");
-
-                String name = regName.getEditText().getText().toString();
-                String username = regUsername.getEditText().getText().toString();
-                String email = regEmail.getEditText().getText().toString();
-                String phoneNo = regPhoneNo.getEditText().getText().toString();
-                String password = regPassword.getEditText().getText().toString();
-
-                UserHelperClass helperClass = new UserHelperClass(name, username, email, phoneNo, password);
-                reference.child(phoneNo).setValue(helperClass);
-
-                Intent intent = new Intent(SignUp.this, Dashboard.class);
-                startActivity(intent);
-
+                registerUser();
             }
         });
 
@@ -64,4 +55,55 @@ public class SignUp extends AppCompatActivity {
         });
     }
 
+    private void registerUser(){
+
+        String email = regEmail.getEditText().getText().toString().trim();
+        String password = regPassword.getEditText().getText().toString().trim();
+
+        if (email.isEmpty())
+        {
+           regEmail.setError("Email is required");
+           regEmail.requestFocus();
+           return;
+        }
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+        {
+           regEmail.setError("Please enter a valid email");
+           regEmail.requestFocus();
+           return;
+        }
+
+        if (password.isEmpty())
+        {
+            regPassword.setError("Password is required");
+            regPassword.requestFocus();
+            return;
+        }
+
+        if (password.length()<6)
+        {
+            regPassword.setError("Minimum length of password should be 6");
+            regPassword.requestFocus();
+            return;
+        }
+
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful())
+                {
+                    Intent intent = new Intent(SignUp.this, Dashboard.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                }
+                else
+                    {
+                        Toast.makeText(getApplicationContext(), "Some error occured", Toast.LENGTH_SHORT).show();
+                    }
+
+            }
+        });
+
+    }
 }

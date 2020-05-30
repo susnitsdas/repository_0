@@ -29,6 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
+        android:transitionName="logo_desc"
         android:text="SignUp"/>
 
     <LinearLayout
@@ -38,53 +39,20 @@
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/reg_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="Full Name">
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"/>
-        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/reg_username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:counterMaxLength="15"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="Username">
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"/>
-        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/reg_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:transitionName="username_tran"
+            app:counterMaxLength="15"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="Email">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/reg_phoneNo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="Phone No">
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"/>
+                android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -93,6 +61,7 @@
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="Password"
+            android:transitionName="password_tran"
             app:passwordToggleEnabled="true">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -107,6 +76,7 @@
         android:layout_height="wrap_content"
         android:background="#000"
         android:text="GO"
+        android:transitionName="btn_tran"
         android:textColor="@color/colorLight" />
 
     <Button
@@ -114,5 +84,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Already have an account? LogIn"
+        android:transitionName="iogin_signup_tran"
         android:background="#00000000"/>
 </LinearLayout>
