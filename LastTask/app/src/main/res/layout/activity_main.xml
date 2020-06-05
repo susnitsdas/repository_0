@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="234dp"
         android:fontFamily="@font/averia_serif_libre_light"
-        android:text="SUDENT COMPANION"
+        android:text="STUDENT COMPANION"
         android:textAlignment="center"
         android:transitionName="logo_text"
         android:textSize="40sp"

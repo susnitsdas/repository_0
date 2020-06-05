@@ -25,7 +25,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     NavigationView navigationView;
     Toolbar toolbar;
 
-    private CardView calculator_cv, voice_recorder, alarm, syllabus,library_fine_calculator;
+    private CardView calculator_cv, voice_recorder, alarm, syllabus,library_fine_calculator, academic_session, todolist;
 
      public static final int ACTIVITY_RECORD_SOUND = 0;
 
@@ -43,6 +43,8 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         alarm = (CardView) findViewById(R.id.alarm);
         syllabus = (CardView) findViewById(R.id.syllabus);
         library_fine_calculator = (CardView) findViewById(R.id.library_fine_calculator);
+        academic_session = (CardView) findViewById(R.id.academic_session);
+        todolist = (CardView) findViewById(R.id.todolist);
 
         calculator_cv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,7 +77,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         syllabus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Dashboard.this, Syllabus.class);
+                Intent intent = new Intent(Dashboard.this, Syllabus1.class);
                 startActivity(intent);
             }
         });
@@ -84,6 +86,22 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Dashboard.this, LibraryFineCalculator.class);
+                startActivity(intent);
+            }
+        });
+
+        academic_session.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Dashboard.this, Academic_Session.class);
+                startActivity(intent);
+            }
+        });
+
+        todolist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Dashboard.this, ToDoList.class);
                 startActivity(intent);
             }
         });
@@ -121,7 +139,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 startActivity(intent);
                 break;
             case R.id.nav_syllabus:
-                Intent intent1 = new Intent(Dashboard.this, Syllabus.class);
+                Intent intent1 = new Intent(Dashboard.this, Syllabus1.class);
                 startActivity(intent1);
                 break;
             case R.id.nav_timetable:
@@ -147,7 +165,8 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         }
         else
         {
-            super.onBackPressed();
+            //super.onBackPressed();
+            moveTaskToBack(true);
         }
 
     }

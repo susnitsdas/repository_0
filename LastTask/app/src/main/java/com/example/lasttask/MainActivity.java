@@ -40,19 +40,25 @@ public class MainActivity extends AppCompatActivity {
         logo.setAnimation(topAnim);
         name.setAnimation(bottomAnim);
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                Pair[] pairs = new Pair [2];
-                pairs[0] = new Pair<View,String> (logo, "logo_image");
-                pairs[1] = new Pair<View, String> (name, "logo_text");
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
-                    startActivity(intent, options.toBundle());
-                }
 
-            }
-        }, SPLASH_SCREEN);
+
+        new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                    Pair[] pairs = new Pair [2];
+                    pairs[0] = new Pair<View,String> (logo, "logo_image");
+                    pairs[1] = new Pair<View, String> (name, "logo_text");
+                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
+                        startActivity(intent, options.toBundle());
+                    }
+
+                }
+            }, SPLASH_SCREEN);
+
+
+
+
     }
 }

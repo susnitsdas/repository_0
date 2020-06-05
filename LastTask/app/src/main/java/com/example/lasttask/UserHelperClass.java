@@ -2,17 +2,18 @@ package com.example.lasttask;
 
 public class UserHelperClass {
 
-    String name, username, email, phoneNo, password;
+    String name, branch, regdNo, sub, subCode;
 
     public UserHelperClass() {
+
     }
 
-    public UserHelperClass(String name, String username, String email, String phoneNo, String password) {
+    public UserHelperClass(String name, String branch, String regdNo, String sub, String subCode) {
         this.name = name;
-        this.username = username;
-        this.email = email;
-        this.phoneNo = phoneNo;
-        this.password = password;
+        this.branch = branch;
+        this.regdNo = regdNo;
+        this.sub = sub;
+        this.subCode = subCode;
     }
 
     public String getName() {
@@ -23,35 +24,35 @@ public class UserHelperClass {
         this.name = name;
     }
 
-    public String getUsername() {
-        return username;
+    public String getBranch() {
+        return branch;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setBranch(String branch) {
+        this.branch = branch;
     }
 
-    public String getEmail() {
-        return email;
+    public String getRegdNo() {
+        return regdNo;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setRegdNo(String regdNo) {
+        this.regdNo = regdNo;
     }
 
-    public String getPhoneNo() {
-        return phoneNo;
+    public String getSub() {
+        return sub;
     }
 
-    public void setPhoneNo(String phoneNo) {
-        this.phoneNo = phoneNo;
+    public void setSub(String sub) {
+        this.sub = sub;
     }
 
-    public String getPassword() {
-        return password;
+    public String getSubCode() {
+        return subCode;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setSubCode(String subCode) {
+        this.subCode = subCode;
     }
 }
